@@ -1,0 +1,29 @@
+<button (click)="emisor.emit(data)">Nombre al Card</button>
+
+<h1>Ejemplo de enlazado de datos</h1>
+
+<h4>Ingrese texto aqui</h4>
+
+<input type="text" [(ngModel)]="data" />
+
+<p>El texto ingresado es: {{ data }}</p>
+
+@if (+data % 2 == 0) {
+<p>El numero es par</p>
+}
+
+<p *ngIf="data === 'Naruto'">Hola Hokage</p>
+
+<ul>
+  @for (item of arreglo; track $index) {
+  <li (click)="funcionClick(item.nombre)">
+    nombre: {{ item.nombre }} --- ocupacion: {{ item.ocupacion }}
+  </li>
+  }
+</ul>
+
+<ul>
+  <li *ngFor="let item of arreglo">
+    nombre: {{ item.nombre }} --- ocupacion: {{ item.ocupacion }}
+  </li>
+</ul>
