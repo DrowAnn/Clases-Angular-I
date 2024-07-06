@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TestService } from '../../services/test.service';
+import { Empleado } from '../card/card.component';
 
 @Component({
   selector: 'app-formulario',
@@ -8,16 +10,25 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.scss',
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
+  nombreEmpleado: string = '';
+  ocupacionEmpleado: string = '';
+  listaEmpleados: Empleado[] = [];
+
+  constructor(private testService: TestService) {}
+
+  ngOnInit(): void {
+    this.listaEmpleados = this.testService.obtenerEmpleados();
+  }
+
   guardarFormulario() {
     window.alert('Formulario Guardado');
   }
 
-  nombreAsistente: string = '';
-
-  listaAsistentes: string[] = [];
-
   funcionAgregar() {
-    this.listaAsistentes.push(this.nombreAsistente);
+    this.testService.agregarEmpleado({
+      nombre: this.nombreEmpleado,
+      ocupacion: this.ocupacionEmpleado,
+    });
   }
 }

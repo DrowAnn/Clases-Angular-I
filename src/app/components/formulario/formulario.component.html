@@ -1,7 +1,12 @@
 <h1>Ejemplo formulario</h1>
 
 <form (ngSubmit)="guardarFormulario()">
-  <input type="text" [(ngModel)]="nombreAsistente" name="first" />
+  <label>Nombre: </label>
+  <input type="text" [(ngModel)]="nombreEmpleado" name="nombreEmpleado" />
+  <br />
+  <label>Ocupación: </label>
+  <input type="text" [(ngModel)]="ocupacionEmpleado" name="ocupacionEmpleado" />
+  <br />
   <button type="submit">Enviar</button>
 </form>
 
@@ -10,7 +15,10 @@
 <br />
 
 <ul>
-  @for (asistente of listaAsistentes; track $index) {
-  <li>Asistente {{ $index + 1 }}: {{ asistente }}</li>
+  @for (empleado of listaEmpleados; track $index) {
+  <li>
+    Empleado {{ $index + 1 }}: {{ empleado.nombre }} ---
+    {{ empleado.ocupacion }}
+  </li>
   }
 </ul>
