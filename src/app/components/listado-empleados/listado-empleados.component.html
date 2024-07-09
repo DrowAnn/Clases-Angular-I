@@ -1,0 +1,10 @@
+<h1>Componente para listar empleados</h1>
+
+<ul>
+  @for (empleado of listaEmpleados; track $index) {
+  <li>
+    <p>nombre: {{ empleado.nombre }}</p>
+    <p>ocupacion: {{ empleado.ocupacion }}</p>
+  </li>
+  }
+</ul>

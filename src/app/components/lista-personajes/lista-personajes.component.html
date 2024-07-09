@@ -1,0 +1,19 @@
+@for (personaje of listaPersonajes.results; track $index) {
+
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>{{ personaje.name }}</mat-card-title>
+    <mat-card-subtitle>{{ personaje.species }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="personaje.image" alt="Photo of a Shiba Inu" />
+  <mat-card-content>
+    <p>
+      <br />
+      Origen: {{ personaje.origin.name }}<br />
+      Status: {{ personaje.status }}<br />
+      Locacion: {{ personaje.location.name }}
+    </p>
+  </mat-card-content>
+</mat-card>
+}

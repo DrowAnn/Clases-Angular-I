@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TestService } from '../../services/test.service';
 import { Empleado } from '../card/card.component';
+import { ListadoEmpleadosComponent } from '../listado-empleados/listado-empleados.component';
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ListadoEmpleadosComponent],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.scss',
 })
